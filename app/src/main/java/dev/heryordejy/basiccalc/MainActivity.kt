@@ -2,10 +2,14 @@ package dev.heryordejy.basiccalc
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.btnAddition
+import kotlinx.android.synthetic.main.activity_main.btnDivision
+import kotlinx.android.synthetic.main.activity_main.btnMultiplication
+import kotlinx.android.synthetic.main.activity_main.btnSubtraction
+import kotlinx.android.synthetic.main.activity_main.firstOperand
+import kotlinx.android.synthetic.main.activity_main.secondOperand
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,18 +17,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnAddition = findViewById<Button>(R.id.btnAddition)
-        val btnSubtraction = findViewById<Button>(R.id.btnSubtraction)
-        val btnMultiplication = findViewById<Button>(R.id.btnMultiplcation)
-        val btnDivision = findViewById<Button>(R.id.btnDivision)
-        val firstOperand = findViewById<EditText>(R.id.firstOperand)
-        val secondOperand = findViewById<EditText>(R.id.secondOperand)
+
+//        val btnAddition = findViewById<Button>(R.id.btnAddition)
+//        val btnSubtraction = findViewById<Button>(R.id.btnSubtraction)
+//        val btnMultiplication = findViewById<Button>(R.id.btnMultiplcation)
+//        val btnDivision = findViewById<Button>(R.id.btnDivision)
+//        val firstOperand = findViewById<EditText>(R.id.firstOperand)
+//        val secondOperand = findViewById<EditText>(R.id.secondOperand)
 
 
         btnAddition.setOnClickListener {
             val result = findViewById<TextView>(R.id.result)
 
-            if (firstOperand.text.isEmpty() || secondOperand.text.isEmpty()) {
+            if (firstOperand.text?.isEmpty() == true || secondOperand.text?.isEmpty() == true) {
                 btnAddition.isEnabled = false
                 Log.d("TEst ing", "--------")
             } else {
@@ -39,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         btnSubtraction.setOnClickListener {
             val result = findViewById<TextView>(R.id.result)
 
-            if (firstOperand.text.isEmpty() || secondOperand.text.isEmpty()) {
+            if (firstOperand.text?.isEmpty() == true || secondOperand.text?.isEmpty() == true) {
                 btnSubtraction.isEnabled = false
             } else {
                 val firstOperandValue = firstOperand.text.toString().toInt()
@@ -53,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         btnMultiplication.setOnClickListener {
             val result = findViewById<TextView>(R.id.result)
 
-            if (firstOperand.text.isEmpty() || secondOperand.text.isEmpty()) {
+            if (firstOperand.text?.isEmpty() == true || secondOperand.text?.isEmpty() == true) {
                 btnMultiplication.isEnabled = false
             } else {
                 val firstOperandValue = firstOperand.text.toString().toInt()
@@ -67,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         btnDivision.setOnClickListener {
             val result = findViewById<TextView>(R.id.result)
 
-            if (firstOperand.text.isEmpty() || secondOperand.text.isEmpty()) {
+            if (firstOperand.text?.isEmpty() == true || secondOperand.text?.isEmpty() == true) {
                 btnDivision.isEnabled = false
             } else {
                 val firstOperandValue = firstOperand.text.toString().toInt()
